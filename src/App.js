@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect, useRef } from 'react'
+import axios from 'axios'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <div className="nav">
+          <Link to='/' style={{ marginRight: '10px' }}>Home</Link>
+          <Link to='/contact'>Contact</Link>
+        </div>
+        <Switch>
+          <Route path='/' exact>
+            <div>Home</div>
+          </Route>
+          <Route path='/contact' exact>
+            <div>Contact</div>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
